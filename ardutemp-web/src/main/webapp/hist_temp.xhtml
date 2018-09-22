@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:body>
+	<ui:composition template="/template/frontend.xhtml">
+		<ui:define name="content">
+		
+			<h:form id="formulario">
+				<p:panelGrid columns="2">
+					<h:outputLabel for="name" value="#{bundle.lbl_fecha_inicial}" />
+					<p:calendar id="fechaIni" value="#{histTemp.fechaIni}" showOn="button" navigator="true" readonlyInput="true" pattern="yyyy-MM-dd" />
+					
+					<h:outputLabel for="name" value="#{bundle.lbl_fecha_final}" />
+					<p:calendar id="fechaFin" value="#{histTemp.fechaFin}" showOn="button" navigator="true" readonlyInput="true" pattern="yyyy-MM-dd" />
+					
+					<p:commandButton value="#{bundle.lbl_consultar}" id="btnConsultar" action="#{histTemp.consultar()}" ajax="false" update="@widgetVar(capaGrafica)" />
+					
+				</p:panelGrid>
+			
+				<p:chart type="line" model="#{histTemp.temperaturaGrafica}" style="height:400px;" id="grafica" widgetVar="capaGrafica" rendered="#{histTemp.mostrarGrafica}" />
+				
+				<br />
+				<br />
+				
+				<p:dataTable id="tablaDatos" var="temperatura" value="#{histTemp.temperaturas}" rows="5" paginator="true" paginatorPosition="bottom" rendered="#{histTemp.mostrarGrafica}" emptyMessage="#{bundle.msg_datos_vacio_des}">
+				    <p:column headerText="#{bundle.lbl_id}">
+				        <h:outputText value="#{temperatura.id}" />
+				    </p:column>
+				    
+				     <p:column headerText="#{bundle.lbl_cliente}">
+				        <h:outputText value="#{temperatura.cliente.nombre}" />
+				    </p:column>
+				 
+				    <p:column headerText="#{bundle.lbl_fecha}">
+				        <h:outputText value="#{temperatura.fecha}">
+				        	<f:convertDateTime pattern="yyyy-MM-dd HH:mm" timeZone="America/Bogota"/>
+				        </h:outputText>
+				    </p:column>
+				 
+				    <p:column headerText="#{bundle.lbl_temperatura}">
+				        <h:outputText value="#{temperatura.valor}">
+				        	<f:convertNumber pattern="#0.00" />
+				        </h:outputText>
+				    </p:column>
+				</p:dataTable>
+				
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

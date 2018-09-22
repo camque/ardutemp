@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:body>
+	<ui:composition template="/template/frontend.xhtml">
+		<ui:define name="content">
+		
+			<h:form id="formulario">
+			
+				<p:panelGrid columns="2">
+					<h:outputLabel for="name" value="#{bundle.lbl_serie1}" />
+					<p:outputPanel>
+						<p:selectOneMenu id="year1" value="#{comparaTemp.year1}">
+							<f:selectItems value="#{comparaTemp.obtenerListaYears()}" />
+						</p:selectOneMenu>
+						<p:selectOneMenu id="mes1" value="#{comparaTemp.mes1}">
+							<f:selectItems value="#{comparaTemp.obtenerListaMeses()}" />
+						</p:selectOneMenu>
+					</p:outputPanel>
+					
+					<h:outputLabel for="name" value="#{bundle.lbl_serie2}" />
+					<p:outputPanel>
+						<p:selectOneMenu id="year2" value="#{comparaTemp.year2}">
+							<f:selectItems value="#{comparaTemp.obtenerListaYears()}" />
+						</p:selectOneMenu>
+						<p:selectOneMenu id="mes2" value="#{comparaTemp.mes2}">
+							<f:selectItems value="#{comparaTemp.obtenerListaMeses()}" />
+						</p:selectOneMenu>
+					</p:outputPanel>
+					
+					<p:commandButton value="#{bundle.lbl_consultar}" id="btnConsultar" action="#{comparaTemp.consultar()}" ajax="false" update="@widgetVar(capaGrafica)" />
+					
+				</p:panelGrid>
+			
+				<p:chart type="line" model="#{comparaTemp.temperaturaGrafica}" style="height:400px;" id="grafica" widgetVar="capaGrafica" rendered="#{comparaTemp.mostrarGrafica}" />
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

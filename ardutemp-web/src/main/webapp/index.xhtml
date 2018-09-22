@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:head>
+	<title><ui:insert name="title">.::ArduTemp::.</ui:insert></title>
+	<!-- <link rel="shortcut icon" href="/solar-web/javax.faces.resource/logo.jpg.jsf?ln=img" />
+	<h:outputStylesheet library="css" name="styles.css"  /> -->
+</h:head>
+
+<h:body>
+
+	<div class="container">
+		
+		<h:form id="formulario">
+		
+			<p:growl id="growl" autoUpdate="true" showDetail="true" />
+
+			<p:panel widgetVar="panelLogin" id="panelLogin" header="#{bundle.lbl_datos_usuario}" style="margin-bottom:20px; width: 30%; left: 400px;">
+				<h:panelGrid columns="2" cellpadding="10">
+					<h:outputText value="#{bundle.lbl_usuario}" />
+					<p:inputText id="txtUsuario" value="#{security.accesoTO.usuario}" placeholder="#{bundle.lbl_usuario}" autocomplete="off" required="true" requiredMessage="#{bundle.msg_usuario_requerido}" />
+					
+					<h:outputText value="#{bundle.lbl_clave}" />
+					<p:password id="txtClave" value="#{security.accesoTO.clave}" placeholder="#{bundle.lbl_clave}" autocomplete="off" required="true" requiredMessage="#{bundle.msg_clave_requerido}" />
+					
+					<p:commandButton value="#{bundle.lbl_acceder}" id="btnAcceso" action="#{security.acceder()}" />
+					<p:commandButton value="#{bundle.lbl_limpiar}" id="btnLimpiar" actionListener="#{security.limpiar()}" update="@widgetVar(panelLogin)" />
+				</h:panelGrid>
+			</p:panel>
+
+		</h:form>
+			
+	</div>
+
+</h:body>
+
+</html>

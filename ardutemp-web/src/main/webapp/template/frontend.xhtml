@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:head>
+	<title><ui:insert name="title">.::ArduTemp::.</ui:insert></title>
+	<!-- <link rel="shortcut icon" href="/solar-web/javax.faces.resource/logo.jpg.jsf?ln=img" />
+	<h:outputStylesheet library="css" name="styles.css"  /> -->
+	
+	<script>
+		PrimeFaces.locales['es'] = {
+			closeText : 'Cerrar',
+			prevText : 'Anterior',
+			nextText : 'Siguiente',
+			monthNames : [ 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre' ],
+			monthNamesShort : [ 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic' ],
+			dayNames : [ 'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado' ],
+			dayNamesShort : [ 'Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab' ],
+			dayNamesMin : [ 'D', 'L', 'M', 'M', 'J', 'V', 'S' ],
+			weekHeader : 'Semana',
+			firstDay : 1,
+			isRTL : false,
+			showMonthAfterYear : false,
+			yearSuffix : '',
+			timeOnlyTitle : 'Sólo hora',
+			timeText : 'Tiempo',
+			hourText : 'Hora',
+			minuteText : 'Minuto',
+			secondText : 'Segundo',
+			currentText : 'Fecha actual',
+			ampm : false,
+			month : 'Mes',
+			week : 'Semana',
+			day : 'Día',
+			allDayText : 'Todo el día'
+		};
+	</script>
+	
+</h:head>
+
+<h:body>
+
+	<div class="container">
+	
+		<h:form id="formularioMenu">
+		
+			<p:menubar>
+				<p:menuitem value="#{bundle.lbl_inicio}" icon="ui-icon-gear" url="./dashboard.jsf" />
+			
+		        <p:submenu label="#{bundle.lbl_temperaturas}" icon="ui-icon-document">
+		        	<p:menuitem value="#{bundle.lbl_historico}" url="./hist_temp.jsf" />
+		        	<p:menuitem value="#{bundle.lbl_comparar}" url="./compara_temp.jsf" />
+		        </p:submenu>
+		        
+		        <p:menuitem value="#{bundle.lbl_configuracion}" icon="ui-icon-gear" />
+		        
+		        <p:menuitem value="#{bundle.lbl_socket}" icon="ui-icon-contact" url="./control_socket.jsf" />
+		 
+		 		<p:menuitem value="#{bundle.lbl_ayuda}" icon="ui-icon-help"/>
+		 
+		        <p:menuitem value="#{bundle.lbl_logout}" icon="ui-icon-close" actionListener="#{security.logout()}" />
+		    </p:menubar>
+		    
+		</h:form>
+	
+		<br/><br/>
+	
+		<p:growl id="growl" widgetVar="growl" showDetail="true" showSummary="true" autoUpdate="true" />
+	
+		<ui:insert name="content">
+			Content
+		</ui:insert>
+		
+	</div>
+
+</h:body>
+
+</html>

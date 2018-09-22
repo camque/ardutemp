@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:head>
+	<title><ui:insert name="title">.::SolarSwimSuit::.</ui:insert></title>
+	<link rel="shortcut icon" href="/solar-web/javax.faces.resource/logo.jpg.jsf?ln=img" />
+	<h:outputStylesheet library="css" name="styles.css"  />
+	<h:outputStylesheet library="css" name="menu.css"  />
+	
+	<h:outputScript library="js" name="jquery.js" />
+	<h:outputScript>
+  			$ = jQuery;
+	</h:outputScript>
+	
+	<h:outputScript library="js" name="menu.js" />
+</h:head>
+
+<h:body style="background-color: #FFFFFF;">
+
+	<p:panelGrid style="width:100%; border: hidden!important;">
+		<p:row>
+			<p:column style="width: 250px; height: 150px; text-align: center; border: hidden!important;">
+				<p:graphicImage library="img" name="logo.jpg" style="height: 150px;" />
+			</p:column>
+			<p:column style="border: hidden!important;">
+				<p:panelGrid>
+					<p:row>
+						<p:column style="width: 55%; border: hidden!important;">
+							&nbsp;
+						</p:column>
+						<p:column style="border: hidden!important;">
+							<b>Bienvenido</b>
+						</p:column>
+						<p:column style="width: 25%; border: hidden!important;">
+						</p:column>
+						<p:column style="border: hidden!important;">
+							<p:commandLink title="Volver" onclick="$(location).attr('href', 'cerrarSesion.jsf');" value="Cerrar sesi&oacute;n" />
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column colspan="4" style="height: 130px; border: hidden!important;">
+							&nbsp;
+						</p:column>
+					</p:row>
+				</p:panelGrid>
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column style="border: hidden!important;">
+				<!-- MENU -->
+				<div id="cssmenu">
+					<ul>
+						<li class=""><a href="index.jsf"><span>Inicio</span></a></li>
+						<li class="has-sub"><a href="javascript:void(0);"><span>P&aacute;gina</span></a>
+							<ul>
+								<li><a href="medios.jsf"><span>Medios</span></a></li>
+								<li><a href="home.jsf"><span>Home</span></a></li>
+								<li><a href="acerca.jsf"><span>Acerca</span></a></li>
+								<li class="last"><a href="adminContacto.jsf"><span>Contacto</span></a></li>
+							</ul>
+						</li>
+						<li class="has-sub"><a href="javascript:void(0);"><span>Productos</span></a>
+							<ul>
+								<li><a href="javascript:void(0);"><span>Colores</span></a></li>
+								<li><a href="javascript:void(0);"><span>Tallas</span></a></li>
+								<li><a href="javascript:void(0);"><span>Tipos Producto</span></a></li>
+								<li class="last"><a href="javascript:void(0);"><span>Productos</span></a></li>
+							</ul>
+						</li>
+						<li class="has-sub"><a href="javascript:void(0);"><span>ERP</span></a>
+							<ul>
+								<li><a href="javascript:void(0);"><span>Departamentos</span></a></li>
+								<li><a href="javascript:void(0);"><span>Ciudades</span></a></li>
+								<li><a href="javascript:void(0);"><span>Clientes</span></a></li>
+								<li><a href="javascript:void(0);"><span>Ventas</span></a></li>
+								<li><a href="javascript:void(0);"><span>Proveedores</span></a></li>
+								<li class="last"><a href="javascript:void(0);"><span>Compras</span></a></li>
+							</ul>
+						</li>
+						<li class="last"><a href="javascript:void(0);"><span>Administraci&oacute;n</span></a></li>
+						<li class="last"><a href="javascript:void(0);"><span>Contactos</span></a></li>
+					</ul>
+				</div>
+				<!-- FIN MENU -->
+			</p:column>
+			<p:column style="vertical-align: text-top; border: hidden!important;">
+				<div id="content">
+				  <ui:insert name="content">
+				    	Content
+				  </ui:insert>
+				</div>
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column colspan="2" style="border: hidden!important;">
+				<div style="text-align: center; padding-top: 50px;">
+						<div>&copy; Copyright 2015 - Todos los derechos reservados.</div>
+						<div>Dise&ntilde;o de software web: <a href="http://solar-swimsuit.rhcloud.com/" target="_blank">solar-swimsuit.rhcloud.com/</a></div>
+					</div>
+			</p:column>
+		</p:row>
+	</p:panelGrid>
+	
+</h:body>
+
+</html>
