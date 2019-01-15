@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:body>
+	<ui:composition template="/template/frontend.xhtml">
+		<ui:define name="content">
+
+			<h:form id="formulario">
+
+				<p:growl id="growl" autoUpdate="true" showDetail="true" />
+
+				<p:dashboard id="board" model="#{dashboard.dashboardModel}">
+
+					<p:panel id="dash11" header="#{bundle.lbl_maxima_temp_mes}">
+						#{bundle.lbl_temperatura}:&nbsp;
+						<h:outputText value="#{dashboard.temperaturaMax.valor}">
+							<f:convertNumber pattern="#0.00" />
+						</h:outputText>
+						&nbsp;&nbsp;
+						#{bundle.lbl_fecha}:&nbsp;
+						<h:outputText value="#{dashboard.temperaturaMax.fecha}">
+							<f:convertDateTime pattern="yyyy-MM-dd HH:mm" timeZone="America/Bogota"/>
+						</h:outputText>
+					</p:panel>
+
+					<p:panel id="dash12" header="#{bundle.lbl_minima_temp_mes}">
+						#{bundle.lbl_temperatura}:&nbsp;
+						<h:outputText value="#{dashboard.temperaturaMin.valor}">
+							<f:convertNumber pattern="#0.00" />
+						</h:outputText>
+						&nbsp;&nbsp;
+						#{bundle.lbl_fecha}:&nbsp;
+						<h:outputText value="#{dashboard.temperaturaMin.fecha}">
+							<f:convertDateTime pattern="yyyy-MM-dd HH:mm" timeZone="America/Bogota"/>
+						</h:outputText>
+					</p:panel>
+
+					<p:panel id="dash13" header="#{bundle.lbl_proximamente}">
+						<h:outputText value="#{bundle.lbl_proximamente}" />
+					</p:panel>
+
+					<p:panel id="dash21" header="#{bundle.lbl_proximamente}">
+						<h:outputText value="#{bundle.lbl_proximamente}" />
+					</p:panel>
+
+					<p:panel id="dash22" header="#{bundle.lbl_proximamente}">
+						<h:outputText value="#{bundle.lbl_proximamente}" />
+					</p:panel>
+					
+				</p:dashboard>
+
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
