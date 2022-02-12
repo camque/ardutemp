@@ -73,12 +73,12 @@
     </properties>
     
     <repositories>
-   		<repository>
-        	<id>prime-repo</id>
-        	<name>PrimeFaces Maven Repository</name>
-        	<url>http://repository.primefaces.org</url>
-        	<layout>default</layout>
-    	</repository>
+ 	<repository>
+       	<id>prime-repo</id>
+       	<name>PrimeFaces Maven Repository</name>
+       	<url>http://repository.primefaces.org</url>
+       	<layout>default</layout>
+    </repository>
 		<repository>
 			<id>java.net</id>
 			<name>java.net</name>
@@ -148,7 +148,7 @@
 		</plugin>
                 <!-- The WildFly plugin deploys your ear to a local JBoss
                     AS container -->
-                <!-- Due to Maven's lack of intelligence with EARs we need 
+               	<!-- Due to Maven's lack of intelligence with EARs we need 
                     to configure the wildfly maven plugin to skip deployment for all modules.
                     We then enable it specifically in the ear module. -->
                 <plugin>
